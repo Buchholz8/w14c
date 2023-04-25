@@ -15,10 +15,10 @@ export default {
     login_button: function() {
       //heres my main problem none of these values are eing read and iin return im being sent a lot of errors
       //ive looked over everything and from what iove seen this should be being read
-      let email_input = document.querySelector(`.user_name`);
-      let email_value = email_input[`value`];
-      let password_input = document.querySelector(`.user_password`);
-      let password_value = password_input[`value`];
+      email_input = document.querySelector(`.user_name`);
+      email_value = email_input[`value`];
+      password_input = document.querySelector(`.user_password`);
+      password_value = password_input[`value`];
     }
   },
   //i set up a mounted area for the axios request
