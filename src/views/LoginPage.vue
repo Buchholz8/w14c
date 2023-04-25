@@ -12,13 +12,6 @@ import axios from 'axios'
 import cookies from "vue-cookies"
 export default {
   methods: {
-    //i first set some data up hoping that it would fix the values not being read
-    data( ){
-      return{
-        email_value: undefined,
-        password_value: undefined
-      }
-    },
     login_button: function() {
       //heres my main problem none of these values are eing read and iin return im being sent a lot of errors
       //ive looked over everything and from what iove seen this should be being read
@@ -42,7 +35,7 @@ export default {
       })
       //i made the then and catches with the data and the token 
       .then((response) => {
-        Cookies.set(`token`, response[`data`][`token`]);
+        cookies.set(`token`, response[`data`][`token`]);
       this.$router.push(`/GamePage`);
       })
       .catch((error) => {
