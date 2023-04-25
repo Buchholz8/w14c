@@ -16,13 +16,11 @@ export default {
         password_value: undefined
       }
     },
-    login_button: function(response) {
+    login_button: function() {
       let email_input = document.querySelector(`.user_name`);
       let email_value = email_input[`value`];
       let password_input = document.querySelector(`.user_password`);
       let password_value = password_input[`value`];
-      Cookies.set(`token`, response[`data`][`token`]);
-      this.$router.push(`/GamePage`);
     }
   },
   mounted() {
@@ -35,7 +33,10 @@ export default {
           password: password_value,
         },
       })
-      .then(login_button)
+      .then((response) => {
+        Cookies.set(`token`, response[`data`][`token`]);
+      this.$router.push(`/GamePage`);
+      })
       .catch((error) => {
         error;
       });

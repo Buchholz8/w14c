@@ -1,6 +1,7 @@
 <template>
   <div>
-    <p>{{ score }}</p>
+    <p> {{win}} </p>
+    <p> {{loss}} </p>
     <button @click="play_function">Play</button>
   </div>
 </template>
@@ -12,20 +13,19 @@ import axios from 'axios'
         methods: { 
             play_function: function(){
                 if(this.generated_number >= 50){
-                    this.score + 1
+                    this.win + 1
                 }else{
-                    this.score - 1
+                    this.loss + 1
                 };
-                if(this.score = 0){
-                    this.score = 0
-                }
-                Cookies.set(`setscore` , this.score)
+                Cookies.set(`setwin` , this.win)
+                Cookies.set(`setloss` , this.loss)
             }
         },
         data() {
             return{
-                score: 0,
                 generated_number: undefined,
+                win: 0,
+                loss: 0,
             }
         },
         mounted ( ) {
