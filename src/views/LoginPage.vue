@@ -9,6 +9,7 @@
 <script>
 //im having major issues on this part, i cant figure out what it is none of the values on this page are being read
 import axios from 'axios'
+import cookies from "vue-cookies"
 export default {
   methods: {
     //i first set some data up hoping that it would fix the values not being read
